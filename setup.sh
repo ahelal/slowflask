@@ -15,3 +15,4 @@ sudo  chown -R slow /opt/slowflask/
 sudo cp unit.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable slow
+sudo systemctl start slow

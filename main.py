@@ -2,22 +2,21 @@
 from flask import Flask
 from multiprocessing import Pool
 from multiprocessing import cpu_count
-from datetime import datetime
+import multiprocessing
+
 app = Flask(__name__)
 
 def f(x):
-    start_time = datetime.now()
     while True:
         x*x
-        time_delta = datetime.now() - start_time
-        if time_delta.total_seconds() >= 5:
-            break
-    
-@app.route("/")
-def hello():
+
+def multi_proc():
     processes = cpu_count()
     pool = Pool(processes)
     pool.map(f, range(processes))
+
+@app.route("/")
+def hello():
     return "Hello World!"
 
 @app.route("/health")
@@ -25,4 +24,7 @@ def health():
     return "ok"
 
 if __name__ == "__main__":
+    p = multiprocessing.Process(target=multi_proc)
+    p.start()
+
     app.run(host= '0.0.0.0', port=8080)
