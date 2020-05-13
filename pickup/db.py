@@ -1,7 +1,7 @@
 import os
 import requests
-DB_HOST = os.getenv("DB_HOS>T", "http://localhost:9000")
 
+DB_HOST = os.getenv("DB_HOST", "http://localhost:9000")
 
 def db_ping():
     try:

@@ -4,12 +4,11 @@ from flask import jsonify
 from flask import request
 import os
 from datetime import datetime
-import datetime
+# import datetime
 import db
 
 app = Flask(__name__)
 
-DB_HOST = os.getenv("DB_HOST", "http://localhost:8888")
 DB_CONNECTION_STATUS = False
 
 def f(x):
