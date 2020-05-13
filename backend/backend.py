@@ -15,6 +15,7 @@ from os import path
 
 lock = threading.Condition()
 app = Flask(__name__)
+PORT = os.getenv("DB_HOST", "8080")
 DB = {}
 DB_UPDATED = False
 BACKUP_FILE="/tmp/backend.json"
@@ -110,4 +111,4 @@ if __name__ == "__main__":
     read_db()
     b_t = threading.Thread(target=thread_backup, args=(1,))
     b_t.start()
-    app.run(host= '0.0.0.0',threaded=True, port=9000, debug=True)
+    app.run(host= '0.0.0.0',threaded=True, port=int(PORT), debug=True)

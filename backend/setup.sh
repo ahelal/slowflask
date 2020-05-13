@@ -15,7 +15,7 @@ else
 fi
 sudo chown -R "${slow_user}" "${base_dir}"
 
-sudo cp "${base_dir}/pickup/backend.service" /etc/systemd/system
+sudo cp "${base_dir}/backend/backend.service" /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable backend
 sudo systemctl start backend

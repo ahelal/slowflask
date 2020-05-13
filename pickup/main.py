@@ -74,7 +74,6 @@ def list_pickups():
         return str(E), 500
     return v
 
-
 @app.route('/transaction', methods=['POST'])
 def write():
     d = request.json
