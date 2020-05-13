@@ -5,7 +5,7 @@ DB_HOST = os.getenv("DB_HOS>T", "http://localhost:9000")
 
 def db_ping():
     try:
-        r = requests.get(DB_HOST + "/health", timeout=2)
+        r = requests.get(DB_HOST + "/health", timeout=1)
     except Exception as E:
         print("Error pinging DB", E)
         return False

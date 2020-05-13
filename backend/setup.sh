@@ -1,5 +1,5 @@
 #!/bin/sh
-set -euo pipefail
+set -eo pipefail
 
 # Assume that clone happened in /opt/slowflask
 base_dir="/opt/slowflask/"

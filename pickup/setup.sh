@@ -1,5 +1,5 @@
 #!/bin/sh
-set -euo pipefail
+set -eo pipefail
 
 # Assume that clone happened in /opt/slowflask
 base_dir="/opt/slowflask/"
@@ -16,7 +16,7 @@ fi
 sudo chown -R "${slow_user}" "${base_dir}"
 
 sudo cp "${base_dir}/pickup/slow.service" /etc/systemd/system
-sed -i /etc/systemd/system/slow.service -e 's$@DB_HOST$'"$DB_HOST_STR"'$'
+sudo sed -i /etc/systemd/system/slow.service -e 's$@DB_HOST$'"$DB_HOST_STR"'$'
 sudo systemctl daemon-reload
 sudo systemctl enable slow
 sudo systemctl start slow
