@@ -14,7 +14,7 @@ else
 fi
 sudo chown -R "${app_user}" "${base_dir}"
 
-sudo cp "${base_dir}/orders/orders.service.service" /etc/systemd/system
+sudo cp "${base_dir}/orders/orders.service" /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable orders
 sudo systemctl start orders
