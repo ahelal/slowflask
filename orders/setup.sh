@@ -5,7 +5,7 @@ set -eo
 base_dir="/opt/slowflask/"
 app_user="order"
 sudo apt-get update
-sudo apt install -y python3-flask
+sudo apt install -y python3-flask python3-filelock
 
 if id -u "${app_user}" > /dev/null 2>&1; then
     echo "No need add ${app_user} user"
